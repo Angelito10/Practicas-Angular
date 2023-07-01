@@ -1,6 +1,11 @@
-<div class="container">
+<div class="text-center mt-4">
+  <h1>Distancia de dos puntos</h1>
+</div>
+<div class="mt-2 text-center">
+  <img src="https://th.bing.com/th/id/R.b85f3dd3ee3aa4aca5149dcb062c21fc?rik=utmtbkpD6Y85yg&riu=http%3a%2f%2fpspc1.weebly.com%2fuploads%2f2%2f4%2f5%2f4%2f24543920%2f2278227_orig.png&ehk=8JNNV4e%2blMV5%2b47q%2bsRbm8xUnpQ0idNql%2bqhOMAHapc%3d&risl=&pid=ImgRaw&r=0" alt="">
+</div>
+<div class="container text-center" style="margin-top: 40px;">
   <div class="form">
-    <h1>DISTANCIA ENTRE DOS PUNTOS</h1>
     <div class="inputs_row">
       <mat-form-field>
         <input type="number" matInput placeholder="X1" [(ngModel)]="x1">
@@ -17,9 +22,9 @@
         <input type="number" matInput placeholder="Y2" [(ngModel)]="y2">
       </mat-form-field>
     </div>
-    <button mat-raised-button color="accent" (click)="calcularDistancia()">CALCULAR DISTANCIA</button>
+    <button mat-raised-button color="primary" (click)="calcularDistancia()">Calcular</button>
   </div>
-  <div class="result">
+  <div class="result" style="margin-top: 35px;">
     <h2>La distancia es: <b>{{ distancia }}</b></h2>
   </div>
 </div>

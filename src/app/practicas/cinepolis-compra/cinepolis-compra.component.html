@@ -1,17 +1,19 @@
-<div class="container_form">
-  <div class="form">
-    <h1>CINEPOLIS</h1>
+<div class="container_form mt-4">
+  <div>
+    <img src="https://logodownload.org/wp-content/uploads/2017/11/cinepolis-logo-3.png" alt="" height="100">
+  </div>
+  <div class="form mt-4">
     <mat-form-field>
-      <input type="text" matInput placeholder="NOMBRE" [(ngModel)]="nombre">
+      <input type="text" matInput placeholder="Nombre" [(ngModel)]="nombre">
     </mat-form-field>
     <mat-form-field>
-      <input type="number" matInput placeholder="NÚMERO DE COMPRADORES" [(ngModel)]="numCompradores">
+      <input type="number" matInput placeholder="Cantidad de compradores" [(ngModel)]="numCompradores">
     </mat-form-field>
     <mat-form-field>
-      <input type="number" matInput placeholder="NÚMERO DE BOLETOS" [(ngModel)]="numBoletos">
+      <input type="number" matInput placeholder="Cantidad de boletos" [(ngModel)]="numBoletos">
     </mat-form-field>
     <mat-radio-group name="opciones" [(ngModel)]="tarjeta">
-      <mat-label class="mat-primary">DESCUENTO CON TARJETA:</mat-label>
+      <mat-label class="mat-primary">¿Tarjeta cinepolis?:</mat-label>
       <mat-radio-button name="opciones" value="SI">
         SI
       </mat-radio-button>
