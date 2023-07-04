@@ -30,14 +30,14 @@
           <h2>Ingredientes</h2>
           <div class="form-group text-center"> 
             <div>
-                <input type="radio" name="ingrediente" formControlName="ingrediente" value="Jamon"> Jamon $10
-              </div>
-              <div>
-                <input type="radio" name="ingrediente" formControlName="ingrediente" value="Piña"> Piña $10
-              </div>
-              <div>
-                <input type="radio" name="ingrediente" formControlName="ingrediente" value="Champiñiones"> Champiñiones $10
-              </div>
+              <input type="checkbox" name="jamon" [(ngModel)]="jamon" (change)="updateTotal('jamon', jamon)"> Jamon $10
+            </div>
+            <div>
+              <input type="checkbox" name="pina" [(ngModel)]="pina" (change)="updateTotal('pina', pina)"> Piña $10
+            </div>
+            <div>
+              <input type="checkbox" name="champi" [(ngModel)]="champi" (change)="updateTotal('champi', champi)"> Champiñiones $10
+            </div>
           </div>
         </div>
         <div class="col-sm-6">
@@ -91,7 +91,7 @@
                 <ng-container *ngIf="p.tamanio == 80">Mediana</ng-container>
                 <ng-container *ngIf="p.tamanio == 120">Grande</ng-container>
               </th>
-              <td>{{p.ingrediente}}</td>
+              <td>{{ingredientesSeleccionados}}</td>
               <td>{{p.numPizzas}}</td>
               <td>{{p.subtotales}}</td>
             </tr>

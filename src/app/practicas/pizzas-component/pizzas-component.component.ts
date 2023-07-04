@@ -19,6 +19,24 @@ export class PizzasComponentComponent implements OnInit{
   total: number = 0;
   chica = 'chica';
 
+
+  jamon: boolean = false;
+  pina: boolean = false;
+  champi: boolean = false;
+  totalI: number = 0;
+  ingredientesSeleccionados: string[] = [];
+
+  updateTotal(ingredient: string, checked: boolean) {
+    if (checked) {
+      
+      this.totalI -= 10;
+    } else {
+      this.totalI += 10;
+      this.ingredientesSeleccionados.push(ingredient);
+    }
+  }
+
+
   
   constructor(private readonly fb: FormBuilder, private formBuilder: FormBuilder) {
     this.myForm = this.initForm();
@@ -40,7 +58,6 @@ export class PizzasComponentComponent implements OnInit{
       dir: ['', [Validators.required]],
       tel: [''],
       numPizzas: [''],
-      ingrediente: [''],
       tamanio: ['']
     });
   }
@@ -49,13 +66,14 @@ export class PizzasComponentComponent implements OnInit{
     this.pizzas.push(this.myForm.value);
 
     //Calcular subTOTAL
-    this.subTotal = parseInt(this.pizzas[this.pizzas.length-1].numPizzas) * parseInt(this.pizzas[this.pizzas.length-1].tamanio);
+    this.subTotal = parseInt(this.pizzas[this.pizzas.length-1].numPizzas) * parseInt(this.pizzas[this.pizzas.length-1].tamanio)+this.totalI;
     this.pizzas['subtotales'] = this.subTotal;
     this.pizzas[this.pizzas.length-1].subtotales = this.subTotal;
     //this.subTotalesList.push(this.subTotal);
 
     // console.log(this.subTotalesList);
      console.log(this.pizzas);
+     console.log(this.pina,this.champi,this.jamon);
 
   }
 
