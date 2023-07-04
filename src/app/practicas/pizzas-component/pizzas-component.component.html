@@ -1,0 +1,122 @@
+<div class="mt-4 text-center" >
+    <img src="https://1.bp.blogspot.com/-NgC2kJGSKrA/UNtr76i5iLI/AAAAAAAAUx4/Ltfhlobqg1c/s1600/rest-dominos.jpg" alt="" height="200x">
+</div>
+<hr>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div class="container text-center">
+    
+
+    <div class="mt-4">
+      <div class="mt-2">
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+      </div>
+      <div class="mt-2">
+        <input type="text" class="form-control" formControlName="dir" placeholder="Direccion">
+      </div>
+      <div class="mt-2">
+        <input type="text" class="form-control" formControlName="tel" placeholder="Telefono">
+      </div>
+      <div class="mt-2">
+        <input type="text" class="form-control" formControlName="numPizzas" placeholder="Numero de pizza">
+      </div>
+    </div>
+  
+
+    <hr>
+     
+    <div class="row mt-4">
+        <div class="col-sm-6">
+          <!-- Contenido de la primera columna -->
+          <h2>Ingredientes</h2>
+          <div class="form-group text-center"> 
+            <div>
+                <input type="radio" name="ingrediente" formControlName="ingrediente" value="Jamon"> Jamon $10
+              </div>
+              <div>
+                <input type="radio" name="ingrediente" formControlName="ingrediente" value="Piña"> Piña $10
+              </div>
+              <div>
+                <input type="radio" name="ingrediente" formControlName="ingrediente" value="Champiñiones"> Champiñiones $10
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <!-- Contenido de la segunda columna -->
+          <h2>Pizza tamaños</h2>
+          <div class="form-group text-center"> 
+            <div>
+                <input type="radio" name="tamanio" formControlName="tamanio" value="40"> Chica $40
+              </div>
+              <div>
+                <input type="radio" name="tamanio"  formControlName="tamanio" value ="80"> Mediana $80
+              </div>
+              <div>
+                <input type="radio" name="tamanio"  formControlName="tamanio" value="120"> Grande $120
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+
+        <button type="submit" class="btn btn-success">Agregar</button>
+
+      </div>
+
+      <hr>
+
+  </div>
+
+</form>
+
+  <div class="container mt-4">
+    <div class="row mt-4">
+      <div class="col-sm-6">
+        <!-- Contenido de la primera columna -->
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Tamaño</th>
+              <th scope="col">Ingredientes</th>
+              <th scope="col">Num. Pizzas</th>
+              <th scope="col">SubTotal</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let p of pizzas ">
+              <th>
+                <ng-container *ngIf="p.tamanio == 40">Chica</ng-container>
+                <ng-container *ngIf="p.tamanio == 80">Mediana</ng-container>
+                <ng-container *ngIf="p.tamanio == 120">Grande</ng-container>
+              </th>
+              <td>{{p.ingrediente}}</td>
+              <td>{{p.numPizzas}}</td>
+              <td>{{p.subtotales}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+         <div class="text-center">
+          <button class="btn btn-primary" (click)="quitar();" style="margin-right: 20px;">Quitar</button> <button (click)="terminar();" class="btn btn-primary">Terminar</button>
+         </div>
+   
+         
+      </div>
+      <div class="col-sm-6">
+        <!-- Contenido de la segunda columna -->
+        <div class=" text-center">
+          <h2>Ventas del dia:</h2>
+           
+            <h3 *ngFor="let p of pizzas">{{p.nombre}}: ${{p.subtotales}} pesos</h3>
+
+             <h2>Total = ${{total}} pesos</h2>
+        </div>
+      
+        
+      </div>
+    </div>
+   <hr>
+  </div>
+  
